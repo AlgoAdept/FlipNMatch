@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Ensure your CSS changes are here
+import './App.css';
 
 const colorSets = {
   easy: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1"],
