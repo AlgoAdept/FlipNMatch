@@ -1,0 +1,20 @@
+.card {
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border-radius: 8px;
+  background: #222;
+  color: #222;
+  transition: all 0.2s;
+  cursor: pointer;
+  user-select: none;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped {
+  background: #fff;
+  color: #000;
+  transform: rotateY(180deg);
+
+}

@@ -1,0 +1,108 @@
+/* ----------  GLOBAL  ---------- */
+:root {
+  --bg: #0d0d0d;
+  --card-back: #222;
+  --accent: #00d0ff;
+  --text: #fff;
+  --gold: #ffd60a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+}
+
+button { cursor: pointer; }
+
+.wrapper {
+  text-align: center;
+  padding: 2rem 1rem 4rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* ----------  TYPO  ---------- */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.stats {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 0.95rem;
+  color: var(--gold);
+}
+
+.win { margin-top: 1rem; font-weight: 600; }
+
+/* ----------  BUTTONS  ---------- */
+.difficulty, .reset {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.level-btn,
+.reset {
+  padding: 0.45rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: var(--text);
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.level-btn.active { background: var(--accent); color: #000; }
+.level-btn:hover:not(.active), .reset:hover { background: #555; transform: translateY(-2px); }
+
+/* ----------  GRID  ---------- */
+.grid {
+  display: grid;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 92vmin;          /* responsive shrink */
+  max-width: 650px;
+  perspective: 800px;     /* 3D for flip */
+}
+
+/* ----------  CARD  ---------- */
+.card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--card-back);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card:hover { transform: scale(1.04); }
+
+.card::before {           /* front face */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  backface-visibility: hidden;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+  background: var(--accent);
+}
+
+/* ensure the color face shows after flip */
+.card.flipped::before {
+  transform: rotateY(180deg);
+  background: inherit;
+}
